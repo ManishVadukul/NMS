@@ -1,0 +1,14 @@
+﻿@model IEnumerable<NMS.Models.Note>
+
+@* _viewAll.cshtmal page is partial view. This partial view link to Notes/Index.cshtml page*@
+<br />
+@foreach (var item in Model)
+{
+    <div class="row" style="background:#e5e5e5; padding:10px;">
+        <div class="col-md-6">Category Name : @item.CategoryName</div>
+        <div class="col-md-6" style="text-align:right;">Date / Time : @item.CreatedDateTime</div>
+        <div class="col-md-12">@Html.Raw(@item.Description)</div>
+    </div>
+    <br />
+     
+}

@@ -1,0 +1,30 @@
+﻿@model IEnumerable<NMS.Models.Note>
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-6">
+        @* This below New Note button will open popup modal using javascript which is written in wwwroot/js/site.js file.
+         
+        Modal popup created in _Layout page.
+
+        This button will redirect*@
+
+        <a onclick="showInPopup('@Url.Action("Upsert","Notes",null,Context.Request.Scheme)','New Note')" class="btn btn-success"><i class="fas fa-plus"></i> &nbsp; Create New Item</a>
+    </div>
+    <div class="col-6" style="text-align:right;">
+        <a href="/swagger" class="btn btn-warning">Go To Swagger</a>
+    </div>
+</div>
+
+<div id="view-all">
+    <partial name="_viewAll" model="Model" />
+</div>
+
+
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial.cshtml" />
+}
